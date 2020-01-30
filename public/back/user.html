@@ -62,7 +62,7 @@
         <li class="active">用户管理</li>
       </ol>
 
-      <!-- 乐淘 -->
+      <!-- 乐淘content -->
       <div class="lt_content">
 
         <!-- 表格 -->
@@ -82,10 +82,12 @@
           </tbody>
         </table>
 
+
         <!-- 准备分页结构, bootstrap3 要求是 ul -->
         <div class="text-right">
           <ul id="paginator" class="pull-right"></ul>
         </div>
+
 
       </div>
 
@@ -122,7 +124,7 @@
   </div>
 
 
-  <div class="model fade" tabindex="-1" id="userModal">
+  <div class="modal fade" tabindex="-1" id="userModal">
 
     <!-- 模态框结构 -->
     <div class="modal-dialog modal-sm">
@@ -132,7 +134,7 @@
           <h4 class="modal-title">温馨提示</h4>
         </div>
         <div class="modal-body">
-          <p class="red"><i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
+          <p class="red"><i class="glyphicon glyphicon-info-sign"></i> 你确定要执行此操作吗？</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -144,45 +146,49 @@
   </div>
 
 
-<!-- 
+
+  <!-- 
   使用模板引擎步骤
   1. 引包
   2. 准备结构(模板)
   3. 准备数据
   4. 将数据和模板相结合
 -->
-<script type="text/html" id="tpl">
-  {{ each rows v i}}
+  <script type="text/html" id="tpl">
+    {{ each rows v i }}
     <tr>
       <!-- 当前页的个数 + 前面的页数*每页多少条 -->
-      <td>{{ i + 1 + (page-1) * size }}</td>
+      <td>{{ i + 1 +  (page-1) * size }}</td>
       <td>{{ v.username }}</td>
       <td>{{ v.mobile }}</td>
-      <!-- isDelete 标记当前用户状态, 1表示正常, 0表示禁用  -->
+      <!-- isDelete 标记当前用户状态, 1表示正常, 0表示禁用 -->
       <td>
         {{ v.isDelete === 1 ? '正常' : '禁用' }}
       </td>
       <td data-id="{{ v.id }}">
         {{ if v.isDelete === 1 }}
-          <button class="btn btn-danger">禁用</button>
+        <button class="btn btn-danger">禁用</button>
         {{ /if }}
 
         {{ if v.isDelete === 0 }}
-          <button class="btn btn-success">启用</button>
+        <button class="btn btn-success">启用</button>
         {{ /if }}
       </td>
     </tr>
-  {{ /each }}
-</script>
+    {{ /each }}
+  </script>
 
-<script src="./lib/jquery/jquery.min.js"></script>
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-<script src="./lib/nprogress/nprogress.js"></script>
-<script src="./lib/artTemplate/template-web.js"></script>
-<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-<script src="js/common.js"></script>
-<script src="js/user.js"></script>
+
+
+
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/user.js"></script>
 
 </body>
 

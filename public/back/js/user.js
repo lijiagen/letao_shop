@@ -45,5 +45,48 @@ $(function () {
       }
     });
   }
+
+
+  //2.给所有启用禁用按钮，添加点击事件(通过事件委托绑定),显示模态框
+  $('tbody').on('click','.btn',function(){
+    //console.log('按钮被点击了');
+    //显示模态框
+    $('#userModal').modal('show');
+
+    //通过自定义属性，获取td中存的用户id,并保存在全局变量中
+    currentId = $(this).parent().data('id');
+
+    //1 启用,0 禁用
+    //通过判断类名,决定需要传递给后台 isDelete,
+    // 如果是禁用按钮,想要禁用该用户,就是将该用户状态,变成 0, 传0
+    isDelete = $(this).hasClass('btn-danger') ? 0 : 1;
+
+  });
+
+  //3.点击模态框的确定按钮,实现启用禁用切换
+  $('#submitBtn').click(function(){
+    console.log('切换启用禁用状态');
+
+    //发送ajax请求
+    $.ajax({
+      type:'post',
+      url: '/user/updateUser',
+      data:{
+        id: currentId,
+        isDelete: isDelete
+      },
+      dataType: 'json',
+      success:function(info){
+        // console.log(info)
+        if(info.success){
+          //修改状态成功
+          //关闭模态框 显示show, 关闭hide
+          $('#userModal').modal('hide');
+          //页面重新渲染
+          render();
+        }
+      }
+    })
+  })
   
-})
+});

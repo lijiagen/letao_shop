@@ -34,7 +34,6 @@ ul {
 .mt_150 {
   margin-top: 150px;
 }
-
 .mt_20 {
   margin-top: 20px;
 }
@@ -51,7 +50,6 @@ ul {
   z-index: 999;
   transition: all 1s;
 }
-
 .lt_aside.hidemenu {
   left: -180px;
 }
@@ -65,16 +63,13 @@ ul {
   font-size: 25px;
   background-color: #367FA9;
 }
-
 .lt_aside .brand a {
   color: #fff;
 }
-
 .lt_aside .user {
   height: 180px;
   padding-top: 30px;
 }
-
 .lt_aside .user img {
   width: 80px;
   height: 80px;
@@ -82,7 +77,6 @@ ul {
   display: block;
   margin: 0 auto;
 }
-
 .lt_aside .user p {
   height: 40px;
   line-height: 40px;
@@ -101,7 +95,6 @@ ul {
   /* transparent 透明 */
   border-left: 3px solid transparent;
 }
-
 .lt_aside .nav a.current {
   background-color: #1D1F21;
   border-left: 3px solid #069;
@@ -114,13 +107,12 @@ ul {
 
 
 .lt_main {
-  height: 1000px;
+  height: 3000px;
   /* background-color: pink; */
   padding-left: 180px;
   padding-top: 50px;
   transition: all 1s;
 }
-
 .lt_main.hidemenu {
   padding-left: 0px;
 }
@@ -134,8 +126,8 @@ ul {
   top: 0;
   padding-left: 180px;
   transition: all 1s;
+  z-index: 666;
 }
-
 .lt_topbar.hidemenu {
   padding: 0;
 }
